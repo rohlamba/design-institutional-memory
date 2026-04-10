@@ -1,0 +1,42 @@
+======================================================================
+THREE-TYPE SELECTIVE MEMORY: DEEP COMPUTATIONAL VERIFICATION
+======================================================================
+Mode: QUICK
+SLSQP starts: 200
+DE: ON
+BH: OFF
+
+Parameter grid: 16 valid parameterizations
+
+======================================================================
+PARAMS [1/16]: y_under=0.2, y_H=2.0, sigma=0.25, w1=0.430, delta=0.9
+  c1_h=0.8200, c1_r=-0.0111, c2=0.1278
+  Experiments: 12
+
+  [nested_L0_Q0] n=12, N=3
+    A1=True, A2=True, A3=True
+    SLSQP from SM: 0.50604000
+    SM=0.50604000, FR=0.50557200, Pool=0.50604000
+    Adv=0.50604000, Unres=0.50604000
+    Gap=0.0000000000 (ok)
+    Time: 7.1s
+
+  [nested_L0_Q1] n=12, N=3
+    A1=True, A2=True, A3=True
+    SLSQP from SM: 0.54394800
+    SM=0.54394800, FR=0.53709000, Pool=0.54394800
+    Adv=0.54394800, Unres=0.54394800
+    Gap=-0.0000000000 (ok)
+    Time: 7.9s
+
+  [nested_L0_Q2] n=16, N=3
+    A1=True, A2=True, A3=True
+    SLSQP from SM: 0.52110600
+    SM=0.52110600, FR=0.51293850, Pool=0.52110600
+    Adv=0.52110600, Unres=0.52110600
+    Gap=0.0000000000 (ok)
+    Time: 21.2s
+
+  [nested_L1_Q0] n=12, N=3
+    A1=True, A2=True, A3=True
+    SLSQP from SM: 0.49383900
