@@ -27,6 +27,12 @@ Usage:
     --output   : Path for JSON results (default: sm_results.json)
 """
 
+import os
+# Limit BLAS threads to 1 per process to avoid oversubscription
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+
 import numpy as np
 from scipy.optimize import minimize, differential_evolution, basinhopping
 from itertools import product
@@ -36,6 +42,8 @@ import time
 import sys
 from dataclasses import dataclass, field, asdict
 from typing import List, Tuple, Optional, Dict
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import multiprocessing
 
 # =====================================================================
 # CONFIGURATION
@@ -55,6 +63,9 @@ class Config:
 
     # Tolerance
     gap_tol: float = 1e-5             # threshold for declaring a counterexample
+
+    # Parallelism
+    n_parallel: int = field(default_factory=lambda: max(1, os.cpu_count() or 1))
 
     # Quick mode overrides
     @classmethod
@@ -286,6 +297,7 @@ def make_objective(params: ModelParams, expt: Experiment, K: int):
     """Create the negative objective function for optimization.
 
     Returns a function that takes a flat W array and returns -V(W).
+    Fully vectorized over signals for speed.
     """
     n = expt.n
     N = expt.n_types
@@ -297,16 +309,16 @@ def make_objective(params: ModelParams, expt: Experiment, K: int):
         Z = p[:, None] * W           # joint probs: n x K
         pi = Z.sum(axis=0)           # signal probs: K
 
-        total = 0.0
-        for k in range(K):
-            if pi[k] < 1e-15:
-                continue
-            mu_k = Z[:, k] @ posts / pi[k]
-            mu_L_k = mu_k[0]
-            mu_H_k = mu_k[N-1]
-            total += pi[k] * float(
-                params.total_value(np.array(mu_L_k), np.array(mu_H_k)))
-        return -total
+        # Vectorized: compute all institutional posteriors at once
+        active = pi > 1e-15
+        if not np.any(active):
+            return 0.0
+        # mu_all shape: (K_active, N_types)
+        mu_all = (Z[:, active].T @ posts) / pi[active, None]
+        mu_L = mu_all[:, 0]
+        mu_H = mu_all[:, N-1]
+        vals = params.total_value(mu_L, mu_H)  # already vectorized
+        return -float(pi[active] @ vals)
 
     return neg_objective
 
@@ -341,11 +353,43 @@ def make_sm_W(expt: Experiment) -> np.ndarray:
     return W
 
 
+def _slsqp_worker(args):
+    """Worker function for parallel SLSQP random starts."""
+    params, expt, K, seed, batch_size = args
+    n = expt.n
+    neg_obj = make_objective(params, expt, K)
+    rng = np.random.default_rng(seed)
+
+    def row_sum_constraint(W_flat):
+        W = W_flat.reshape(n, K)
+        return W.sum(axis=1) - 1.0
+
+    bounds = [(0.0, 1.0)] * (n * K)
+    constraints = {'type': 'eq', 'fun': row_sum_constraint}
+
+    best_val = -np.inf
+    best_W_flat = None
+    for _ in range(batch_size):
+        W0 = rng.dirichlet(np.ones(K), size=n).flatten()
+        try:
+            res = minimize(neg_obj, W0, method='SLSQP',
+                           bounds=bounds, constraints=constraints,
+                           options={'maxiter': 2000, 'ftol': 1e-15})
+            val = -res.fun
+            if val > best_val + 1e-12:
+                best_val = val
+                best_W_flat = res.x
+        except Exception:
+            pass
+    return best_val, best_W_flat
+
+
 def solve_unrestricted(params: ModelParams, expt: Experiment, config: Config,
                        verbose: bool = False) -> Tuple[float, np.ndarray]:
     """Solve the unrestricted garbling problem using multiple methods.
 
     Returns (best_value, best_W).
+    SLSQP random starts are parallelized across CPU cores.
     """
     n = expt.n
     K = n  # K = n is sufficient for any optimum
@@ -381,20 +425,29 @@ def solve_unrestricted(params: ModelParams, expt: Experiment, config: Config,
         except Exception:
             pass
 
-    # --- Method 2: SLSQP from random starts ---
+    # --- Method 2: SLSQP from random starts (parallelized when n_parallel > 1) ---
     if config.use_slsqp:
-        for trial in range(config.n_slsqp_starts):
-            W0 = np.random.dirichlet(np.ones(K), size=n).flatten()
-            try:
-                res = minimize(neg_obj, W0, method='SLSQP',
-                               bounds=bounds, constraints=constraints_slsqp,
-                               options={'maxiter': 2000, 'ftol': 1e-15})
-                val = -res.fun
-                if val > best_val + 1e-12:
-                    best_val = val
-                    best_W = res.x.reshape(n, K)
-            except Exception:
-                pass
+        if config.n_parallel <= 1:
+            # Serial: run directly (no subprocess overhead)
+            val, W_flat = _slsqp_worker(
+                (params, expt, K, 0, config.n_slsqp_starts))
+            if W_flat is not None and val > best_val + 1e-12:
+                best_val = val
+                best_W = W_flat.reshape(n, K)
+        else:
+            n_workers = min(config.n_parallel, config.n_slsqp_starts)
+            batch_size = max(1, config.n_slsqp_starts // n_workers)
+            worker_args = [
+                (params, expt, K, seed, batch_size)
+                for seed in range(n_workers)
+            ]
+            with ProcessPoolExecutor(max_workers=n_workers) as pool:
+                futures = [pool.submit(_slsqp_worker, a) for a in worker_args]
+                for f in as_completed(futures):
+                    val, W_flat = f.result()
+                    if W_flat is not None and val > best_val + 1e-12:
+                        best_val = val
+                        best_W = W_flat.reshape(n, K)
         methods_used.append("SLSQP")
 
     # --- Method 3: Differential Evolution ---
@@ -805,6 +858,12 @@ def generate_param_grid(quick: bool = False) -> List[ModelParams]:
 # MAIN
 # =====================================================================
 
+def _run_case_worker(args):
+    """Top-level worker for running a single case (for ProcessPoolExecutor)."""
+    params, expt, config = args
+    return run_case(params, expt, config, verbose=False)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Deep verification of the SM theorem")
@@ -812,9 +871,12 @@ def main():
                         help="Quick mode: fewer trials")
     parser.add_argument("--output", default="sm_results.json",
                         help="Output JSON path")
+    parser.add_argument("--serial", action="store_true",
+                        help="Run cases serially (no case-level parallelism)")
     args = parser.parse_args()
 
     config = Config.quick() if args.quick else Config()
+    n_cpus = os.cpu_count() or 1
     print("=" * 70)
     print("THREE-TYPE SELECTIVE MEMORY: DEEP COMPUTATIONAL VERIFICATION")
     print("=" * 70)
@@ -822,43 +884,66 @@ def main():
     print(f"SLSQP starts: {config.n_slsqp_starts}")
     print(f"DE: {'ON' if config.use_differential_evolution else 'OFF'}")
     print(f"BH: {'ON' if config.use_basin_hopping else 'OFF'}")
+    print(f"CPUs: {n_cpus}, parallel workers: {config.n_parallel}")
 
     # Generate parameter grid
     param_grid = generate_param_grid(quick=args.quick)
     print(f"\nParameter grid: {len(param_grid)} valid parameterizations")
 
-    # For each parameter, generate experiments and run
-    all_results = []
-    counters_all = []
-    counters_with_conditions = []
-
-    total_cases = 0
-    t_start = time.time()
-
-    for p_idx, params in enumerate(param_grid):
-        print(f"\n{'='*70}")
-        print(f"PARAMS [{p_idx+1}/{len(param_grid)}]: "
-              f"y_under={params.y_under}, y_H={params.y_H}, "
-              f"sigma={params.sigma}, w1={params.w1:.3f}, delta={params.delta}")
-        print(f"  c1_h={params.c1_h:.4f}, c1_r={params.c1_r:.4f}, "
-              f"c2={params.c2:.4f}")
-
+    # Collect all cases
+    all_case_args = []
+    for params in param_grid:
         cases = generate_experiments(params, quick=args.quick)
-        print(f"  Experiments: {len(cases)}")
-
         for _, expt in cases:
-            total_cases += 1
-            result = run_case(params, expt, config, verbose=True)
-            all_results.append(result)
+            all_case_args.append((params, expt, config))
 
-            if result.is_counterexample:
-                counters_all.append(result)
-                if all(result.conditions.values()):
-                    counters_with_conditions.append(result)
+    total_cases = len(all_case_args)
+    print(f"Total cases to run: {total_cases}")
+
+    t_start = time.time()
+    all_results = []
+
+    if args.serial:
+        # Serial execution with verbose output
+        for i, (params, expt, cfg) in enumerate(all_case_args):
+            result = run_case(params, expt, cfg, verbose=True)
+            all_results.append(result)
+            print(f"  [{i+1}/{total_cases}] {result.label}: "
+                  f"gap={result.gap:.10f} "
+                  f"{'<<< COUNTER >>>' if result.is_counterexample else '(ok)'}")
+    else:
+        # Parallel execution across cases
+        # Use 1 worker per SLSQP inside each case (to avoid over-subscribing)
+        config_single = Config.quick() if args.quick else Config()
+        config_single.n_parallel = 1  # each case runs SLSQP serially
+        case_args = [(p, e, config_single) for p, e, _ in all_case_args]
+
+        n_case_workers = min(n_cpus, total_cases)
+        print(f"Running {total_cases} cases across {n_case_workers} workers...")
+        sys.stdout.flush()
+
+        with ProcessPoolExecutor(max_workers=n_case_workers) as pool:
+            futures = {pool.submit(_run_case_worker, a): i
+                       for i, a in enumerate(case_args)}
+            for f in as_completed(futures):
+                idx = futures[f]
+                result = f.result()
+                all_results.append(result)
+                status = '<<< COUNTER >>>' if result.is_counterexample else '(ok)'
+                conds = 'A1+A2+A3' if all(result.conditions.values()) else 'partial'
+                print(f"  [{len(all_results)}/{total_cases}] "
+                      f"{result.label} [{conds}]: "
+                      f"gap={result.gap:.10f} {status} "
+                      f"({result.runtime_sec:.1f}s)")
+                sys.stdout.flush()
 
     elapsed = time.time() - t_start
 
     # Summary
+    counters_all = [r for r in all_results if r.is_counterexample]
+    counters_with_conditions = [r for r in counters_all
+                                 if all(r.conditions.values())]
+
     print(f"\n{'='*70}")
     print(f"SUMMARY")
     print(f"{'='*70}")

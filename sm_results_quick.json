@@ -1,0 +1,5204 @@
+{
+  "config": {
+    "n_slsqp_starts": 200,
+    "de_maxiter": 300,
+    "de_popsize": 15,
+    "bh_niter": 50,
+    "use_differential_evolution": true,
+    "use_basin_hopping": false,
+    "use_slsqp": true,
+    "gap_tol": 1e-05,
+    "n_parallel": 16
+  },
+  "total_cases": 192,
+  "n_with_conditions": 66,
+  "n_counterexamples_total": 96,
+  "n_counterexamples_with_conditions": 0,
+  "elapsed_seconds": 312.4847764968872,
+  "results": [
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5374500000000001,
+      "V_full_rev": 0.5374500000000001,
+      "V_full_pool": 0.545,
+      "V_adversarial": 0.545,
+      "V_unrestricted": 0.545,
+      "gap": 0.007549999999999946,
+      "is_counterexample": true,
+      "runtime_sec": 1.3072700500488281
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.656357142857143,
+      "V_full_rev": 0.656357142857143,
+      "V_full_pool": 0.687857142857143,
+      "V_adversarial": 0.6843673469387757,
+      "V_unrestricted": 0.6878571428571432,
+      "gap": 0.031500000000000195,
+      "is_counterexample": true,
+      "runtime_sec": 2.1649105548858643
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5634000000000002,
+      "V_full_rev": 0.56262,
+      "V_full_pool": 0.5634000000000001,
+      "V_adversarial": 0.5634000000000002,
+      "V_unrestricted": 0.5634000000000001,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.327204704284668
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.50604,
+      "V_full_rev": 0.5055720000000001,
+      "V_full_pool": 0.5060400000000002,
+      "V_adversarial": 0.5060400000000002,
+      "V_unrestricted": 0.50604,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.7199504375457764
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7829522994562498,
+      "V_full_rev": 0.7829522994562498,
+      "V_full_pool": 0.7829522994562497,
+      "V_adversarial": 0.7829522994562496,
+      "V_unrestricted": 0.7829522994562494,
+      "gap": -3.3306690738754696e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.804004669189453
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5439480000000001,
+      "V_full_rev": 0.5370900000000001,
+      "V_full_pool": 0.5439480000000001,
+      "V_adversarial": 0.5439480000000001,
+      "V_unrestricted": 0.5439480000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 4.208827972412109
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6265800000000001,
+      "V_full_rev": 0.61515,
+      "V_full_pool": 0.62658,
+      "V_adversarial": 0.62658,
+      "V_unrestricted": 0.62658,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 4.797534227371216
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7607678571428572,
+      "V_full_rev": 0.7607678571428572,
+      "V_full_pool": 0.795,
+      "V_adversarial": 0.7701857142857144,
+      "V_unrestricted": 0.7950000000000002,
+      "gap": 0.03423214285714293,
+      "is_counterexample": true,
+      "runtime_sec": 4.853893995285034
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6714642857142858,
+      "V_full_rev": 0.6714642857142858,
+      "V_full_pool": 0.6950000000000001,
+      "V_adversarial": 0.6950000000000001,
+      "V_unrestricted": 0.6950000000000002,
+      "gap": 0.023535714285714326,
+      "is_counterexample": true,
+      "runtime_sec": 1.5791959762573242
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7853571428571429,
+      "V_full_rev": 0.785357142857143,
+      "V_full_pool": 0.837857142857143,
+      "V_adversarial": 0.8320408163265307,
+      "V_unrestricted": 0.8378571428571429,
+      "gap": 0.05249999999999999,
+      "is_counterexample": true,
+      "runtime_sec": 1.8962445259094238
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7007349835674594,
+      "V_full_rev": 0.7007349835674594,
+      "V_full_pool": 0.7379293031440638,
+      "V_adversarial": 0.7379293031440638,
+      "V_unrestricted": 0.7379293031440639,
+      "gap": 0.03719431957660446,
+      "is_counterexample": true,
+      "runtime_sec": 5.810706377029419
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8879464285714286,
+      "V_full_rev": 0.8879464285714286,
+      "V_full_pool": 0.9450000000000001,
+      "V_adversarial": 0.9036428571428572,
+      "V_unrestricted": 0.9450000000000002,
+      "gap": 0.05705357142857159,
+      "is_counterexample": true,
+      "runtime_sec": 3.58502459526062
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.58851,
+      "V_full_rev": 0.5748975000000001,
+      "V_full_pool": 0.5885100000000002,
+      "V_adversarial": 0.5885100000000001,
+      "V_unrestricted": 0.5885100000000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 7.63827919960022
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.9329522994562496,
+      "V_full_rev": 0.9329522994562496,
+      "V_full_pool": 0.9329522994562497,
+      "V_adversarial": 0.9329522994562496,
+      "V_unrestricted": 0.9329522994562496,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.245229482650757
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5085283500000002,
+      "V_full_rev": 0.49944960000000005,
+      "V_full_pool": 0.50402835,
+      "V_adversarial": 0.50402835,
+      "V_unrestricted": 0.5085283500000001,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 8.612219095230103
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6200400000000001,
+      "V_full_rev": 0.6163860000000001,
+      "V_full_pool": 0.62004,
+      "V_adversarial": 0.6200400000000001,
+      "V_unrestricted": 0.6200400000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.804621458053589
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.57454725,
+      "V_full_rev": 0.559416,
+      "V_full_pool": 0.57004725,
+      "V_adversarial": 0.5700472500000001,
+      "V_unrestricted": 0.5745472500000002,
+      "gap": 2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 6.6688127517700195
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6007,
+      "V_full_rev": 0.6007,
+      "V_full_pool": 0.605,
+      "V_adversarial": 0.605,
+      "V_unrestricted": 0.6049999999999999,
+      "gap": 0.0042999999999998595,
+      "is_counterexample": true,
+      "runtime_sec": 1.2207825183868408
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5211060000000001,
+      "V_full_rev": 0.5129385000000002,
+      "V_full_pool": 0.5211060000000002,
+      "V_adversarial": 0.5211060000000001,
+      "V_unrestricted": 0.5211060000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 9.954463958740234
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7298571428571428,
+      "V_full_rev": 0.7298571428571429,
+      "V_full_pool": 0.7478571428571429,
+      "V_adversarial": 0.7478571428571428,
+      "V_unrestricted": 0.7478571428571429,
+      "gap": 0.018000000000000127,
+      "is_counterexample": true,
+      "runtime_sec": 1.438044786453247
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8259387705163898,
+      "V_full_rev": 0.8259387705163898,
+      "V_full_pool": 0.8879293031440638,
+      "V_adversarial": 0.8879293031440638,
+      "V_unrestricted": 0.8879293031440638,
+      "gap": 0.061990532627674066,
+      "is_counterexample": true,
+      "runtime_sec": 5.645727872848511
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8352642857142857,
+      "V_full_rev": 0.8352642857142857,
+      "V_full_pool": 0.855,
+      "V_adversarial": 0.855,
+      "V_unrestricted": 0.855,
+      "gap": 0.0197357142857143,
+      "is_counterexample": true,
+      "runtime_sec": 1.8691740036010742
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6351060000000002,
+      "V_full_rev": 0.6195629999999999,
+      "V_full_pool": 0.6351060000000001,
+      "V_adversarial": 0.630768,
+      "V_unrestricted": 0.6351060000000001,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 5.412435293197632
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.603339,
+      "V_full_rev": 0.5989559999999999,
+      "V_full_pool": 0.603339,
+      "V_adversarial": 0.603339,
+      "V_unrestricted": 0.603339,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 4.241346120834351
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8429522994562496,
+      "V_full_rev": 0.8429522994562496,
+      "V_full_pool": 0.8429522994562496,
+      "V_adversarial": 0.8429522994562496,
+      "V_unrestricted": 0.8429522994562494,
+      "gap": -2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.098721742630005
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6180283499999999,
+      "V_full_rev": 0.6021759750000001,
+      "V_full_pool": 0.61802835,
+      "V_adversarial": 0.61403685,
+      "V_unrestricted": 0.6180283499999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 5.9352428913116455
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.776195529708979,
+      "V_full_rev": 0.776195529708979,
+      "V_full_pool": 0.7979293031440637,
+      "V_adversarial": 0.7979293031440636,
+      "V_unrestricted": 0.7979293031440639,
+      "gap": 0.02173377343508487,
+      "is_counterexample": true,
+      "runtime_sec": 4.1986284255981445
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.7134000000000001,
+      "V_full_rev": 0.70731,
+      "V_full_pool": 0.7134,
+      "V_adversarial": 0.7134000000000001,
+      "V_unrestricted": 0.7134000000000003,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.8402392864227295
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.742,
+      "V_full_rev": 0.742,
+      "V_full_pool": 0.755,
+      "V_adversarial": 0.7549999999999999,
+      "V_unrestricted": 0.7549999999999999,
+      "gap": 0.0129999999999999,
+      "is_counterexample": true,
+      "runtime_sec": 0.9773476123809814
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.695565,
+      "V_full_rev": 0.6882599999999999,
+      "V_full_pool": 0.695565,
+      "V_adversarial": 0.695565,
+      "V_unrestricted": 0.695565,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.635859727859497
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9721071428571428,
+      "V_full_rev": 0.9721071428571428,
+      "V_full_pool": 1.005,
+      "V_adversarial": 1.005,
+      "V_unrestricted": 1.005,
+      "gap": 0.03289285714285706,
+      "is_counterexample": true,
+      "runtime_sec": 1.5755865573883057
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8678571428571429,
+      "V_full_rev": 0.8678571428571429,
+      "V_full_pool": 0.8978571428571429,
+      "V_adversarial": 0.8978571428571429,
+      "V_unrestricted": 0.8978571428571429,
+      "gap": 0.030000000000000027,
+      "is_counterexample": true,
+      "runtime_sec": 1.3306629657745361
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.73851,
+      "V_full_rev": 0.7126049999999999,
+      "V_full_pool": 0.7385100000000001,
+      "V_adversarial": 0.73128,
+      "V_unrestricted": 0.73851,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 5.355515241622925
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6667726345980326,
+      "V_full_rev": 0.6667726345980326,
+      "V_full_pool": 0.7264383650532374,
+      "V_adversarial": 0.672799061365249,
+      "V_unrestricted": 0.7264383650532376,
+      "gap": 0.05966573045520496,
+      "is_counterexample": true,
+      "runtime_sec": 19.088274002075195
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.72004725,
+      "V_full_rev": 0.693626625,
+      "V_full_pool": 0.7200472499999999,
+      "V_adversarial": 0.71339475,
+      "V_unrestricted": 0.72004725,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 5.455387353897095
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.9929522994562495,
+      "V_full_rev": 0.9929522994562495,
+      "V_full_pool": 0.9929522994562496,
+      "V_adversarial": 0.9929522994562494,
+      "V_unrestricted": 0.9929522994562494,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.386000871658325
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.50604,
+      "V_full_rev": 0.50604,
+      "V_full_pool": 0.5060399999999999,
+      "V_adversarial": 0.5060400000000002,
+      "V_unrestricted": 0.50604,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.4354169368743896
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9117063474189225,
+      "V_full_rev": 0.9117063474189225,
+      "V_full_pool": 0.9479293031440637,
+      "V_adversarial": 0.9479293031440637,
+      "V_unrestricted": 0.9479293031440639,
+      "gap": 0.03622295572514134,
+      "is_counterexample": true,
+      "runtime_sec": 4.291157484054565
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7492726345980325,
+      "V_full_rev": 0.7492726345980325,
+      "V_full_pool": 0.7864383650532375,
+      "V_adversarial": 0.759799061365249,
+      "V_unrestricted": 0.7864383650532374,
+      "gap": 0.03716573045520488,
+      "is_counterexample": true,
+      "runtime_sec": 10.543138265609741
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7769954809612295,
+      "V_full_rev": 0.7769954809612295,
+      "V_full_pool": 0.8764383650532375,
+      "V_adversarial": 0.7870395255732568,
+      "V_unrestricted": 0.8764383650532375,
+      "gap": 0.09944288409200797,
+      "is_counterexample": true,
+      "runtime_sec": 17.828855991363525
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.543948,
+      "V_full_rev": 0.5439480000000001,
+      "V_full_pool": 0.543948,
+      "V_adversarial": 0.5439480000000001,
+      "V_unrestricted": 0.543948,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.2182466983795166
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.6567636,
+      "V_full_rev": 0.64218,
+      "V_full_pool": 0.657948,
+      "V_adversarial": 0.650856,
+      "V_unrestricted": 0.6579480000000002,
+      "gap": 0.0011844000000001964,
+      "is_counterexample": true,
+      "runtime_sec": 16.649904012680054
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8744954809612295,
+      "V_full_rev": 0.8744954809612295,
+      "V_full_pool": 0.9364383650532375,
+      "V_adversarial": 0.8920395255732568,
+      "V_unrestricted": 0.9364383650532374,
+      "gap": 0.06194288409200788,
+      "is_counterexample": true,
+      "runtime_sec": 7.305814981460571
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.60495,
+      "V_full_rev": 0.60495,
+      "V_full_pool": 0.635,
+      "V_adversarial": 0.60495,
+      "V_unrestricted": 0.6350000000000002,
+      "gap": 0.030050000000000243,
+      "is_counterexample": true,
+      "runtime_sec": 2.8087236881256104
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.63808665,
+      "V_full_rev": 0.6238293,
+      "V_full_pool": 0.6402993000000001,
+      "V_adversarial": 0.6402093,
+      "V_unrestricted": 0.6402992999999999,
+      "gap": 0.002212649999999927,
+      "is_counterexample": true,
+      "runtime_sec": 18.11170792579651
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8652626645686372,
+      "V_full_rev": 0.8652626645686372,
+      "V_full_pool": 0.8729522994562495,
+      "V_adversarial": 0.8729522994562496,
+      "V_unrestricted": 0.8729522994562497,
+      "gap": 0.00768963488761254,
+      "is_counterexample": true,
+      "runtime_sec": 3.326453924179077
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5211060000000001,
+      "V_full_rev": 0.5190810000000001,
+      "V_full_pool": 0.5211060000000001,
+      "V_adversarial": 0.521106,
+      "V_unrestricted": 0.521106,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 8.653319835662842
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5634,
+      "V_full_rev": 0.5633999999999999,
+      "V_full_pool": 0.5633999999999999,
+      "V_adversarial": 0.5634000000000001,
+      "V_unrestricted": 0.5634,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.110374689102173
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.50852835,
+      "V_full_rev": 0.5061996,
+      "V_full_pool": 0.50402835,
+      "V_adversarial": 0.5061996,
+      "V_unrestricted": 0.5085283499999993,
+      "gap": -6.661338147750939e-16,
+      "is_counterexample": false,
+      "runtime_sec": 9.227664709091187
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6265799999999999,
+      "V_full_rev": 0.6265799999999999,
+      "V_full_pool": 0.6265799999999999,
+      "V_adversarial": 0.62658,
+      "V_unrestricted": 0.6265799999999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.0580801963806152
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.774606,
+      "V_full_rev": 0.7503,
+      "V_full_pool": 0.77658,
+      "V_adversarial": 0.76476,
+      "V_unrestricted": 0.7765800000000002,
+      "gap": 0.0019740000000001423,
+      "is_counterexample": true,
+      "runtime_sec": 19.90347933769226
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7839642857142857,
+      "V_full_rev": 0.7839642857142857,
+      "V_full_pool": 0.845,
+      "V_adversarial": 0.7942142857142858,
+      "V_unrestricted": 0.8450000000000001,
+      "gap": 0.061035714285714415,
+      "is_counterexample": true,
+      "runtime_sec": 2.57651424407959
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.58851,
+      "V_full_rev": 0.585135,
+      "V_full_pool": 0.5885100000000001,
+      "V_adversarial": 0.58851,
+      "V_unrestricted": 0.5885099999999999,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 5.632300853729248
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.37,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.7534777500000001,
+      "V_full_rev": 0.7297155,
+      "V_full_pool": 0.7571655000000002,
+      "V_adversarial": 0.7570155000000001,
+      "V_unrestricted": 0.7571654999999999,
+      "gap": 0.0036877499999998786,
+      "is_counterexample": true,
+      "runtime_sec": 22.55605459213257
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.57454725,
+      "V_full_rev": 0.570666,
+      "V_full_pool": 0.57004725,
+      "V_adversarial": 0.5706659999999999,
+      "V_unrestricted": 0.5745472499999997,
+      "gap": -2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 7.181769132614136
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7607349835674594,
+      "V_full_rev": 0.7607349835674594,
+      "V_full_pool": 0.827929303144064,
+      "V_adversarial": 0.7847522338538071,
+      "V_unrestricted": 0.8279293031440639,
+      "gap": 0.06719431957660449,
+      "is_counterexample": true,
+      "runtime_sec": 15.155038118362427
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 1.0701362413102289,
+      "V_full_rev": 1.0701362413102289,
+      "V_full_pool": 1.0829522994562495,
+      "V_adversarial": 1.0829522994562495,
+      "V_unrestricted": 1.0829522994562497,
+      "gap": 0.012816058146020826,
+      "is_counterexample": true,
+      "runtime_sec": 4.51872181892395
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7238571428571429,
+      "V_full_rev": 0.7238571428571429,
+      "V_full_pool": 0.777857142857143,
+      "V_adversarial": 0.7293673469387757,
+      "V_unrestricted": 0.7778571428571429,
+      "gap": 0.05400000000000005,
+      "is_counterexample": true,
+      "runtime_sec": 20.485793590545654
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6200400000000001,
+      "V_full_rev": 0.6200400000000001,
+      "V_full_pool": 0.62004,
+      "V_adversarial": 0.6200400000000003,
+      "V_unrestricted": 0.6200400000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 2.9964284896850586
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6579480000000001,
+      "V_full_rev": 0.6550319999999998,
+      "V_full_pool": 0.6579480000000001,
+      "V_adversarial": 0.657948,
+      "V_unrestricted": 0.6579480000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.2604072093963623
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.603339,
+      "V_full_rev": 0.603339,
+      "V_full_pool": 0.6033390000000001,
+      "V_adversarial": 0.6033390000000001,
+      "V_unrestricted": 0.6033390000000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.4960126876831055
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6351060000000001,
+      "V_full_rev": 0.6296384999999998,
+      "V_full_pool": 0.6351060000000002,
+      "V_adversarial": 0.635106,
+      "V_unrestricted": 0.6351060000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 5.7681756019592285
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6402993000000001,
+      "V_full_rev": 0.6373833000000001,
+      "V_full_pool": 0.6402993000000001,
+      "V_adversarial": 0.6402993000000001,
+      "V_unrestricted": 0.6402993000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.502906560897827
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9259387705163897,
+      "V_full_rev": 0.9259387705163897,
+      "V_full_pool": 1.0379293031440637,
+      "V_adversarial": 0.9659675209936359,
+      "V_unrestricted": 1.037929303144064,
+      "gap": 0.11199053262767422,
+      "is_counterexample": true,
+      "runtime_sec": 16.847497701644897
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6707714285714287,
+      "V_full_rev": 0.6707714285714287,
+      "V_full_pool": 0.6950000000000001,
+      "V_adversarial": 0.6915285714285716,
+      "V_unrestricted": 0.6950000000000002,
+      "gap": 0.024228571428571488,
+      "is_counterexample": true,
+      "runtime_sec": 1.5889298915863037
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8151857142857143,
+      "V_full_rev": 0.8151857142857143,
+      "V_full_pool": 0.885,
+      "V_adversarial": 0.8151857142857144,
+      "V_unrestricted": 0.8850000000000001,
+      "gap": 0.06981428571428583,
+      "is_counterexample": true,
+      "runtime_sec": 33.21958374977112
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.61802835,
+      "V_full_rev": 0.6116496,
+      "V_full_pool": 0.61802835,
+      "V_adversarial": 0.6180283500000001,
+      "V_unrestricted": 0.61802835,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 5.431621074676514
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8978571428571428,
+      "V_full_rev": 0.8978571428571429,
+      "V_full_pool": 0.9878571428571429,
+      "V_adversarial": 0.9070408163265307,
+      "V_unrestricted": 0.9878571428571429,
+      "gap": 0.09000000000000008,
+      "is_counterexample": true,
+      "runtime_sec": 24.53597140312195
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7973571428571429,
+      "V_full_rev": 0.797357142857143,
+      "V_full_pool": 0.8378571428571431,
+      "V_adversarial": 0.8163673469387758,
+      "V_unrestricted": 0.8378571428571431,
+      "gap": 0.0405000000000002,
+      "is_counterexample": true,
+      "runtime_sec": 4.156548738479614
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9300208124764531,
+      "V_full_rev": 0.9300208124764531,
+      "V_full_pool": 0.9329522994562496,
+      "V_adversarial": 0.9329522994562497,
+      "V_unrestricted": 0.9329522994562496,
+      "gap": 0.002931486979796505,
+      "is_counterexample": true,
+      "runtime_sec": 3.57279634475708
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8972678571428574,
+      "V_full_rev": 0.8972678571428574,
+      "V_full_pool": 0.9450000000000001,
+      "V_adversarial": 0.9021857142857145,
+      "V_unrestricted": 0.9450000000000001,
+      "gap": 0.04773214285714267,
+      "is_counterexample": true,
+      "runtime_sec": 8.37928819656372
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7134000000000001,
+      "V_full_rev": 0.7134,
+      "V_full_pool": 0.7133999999999999,
+      "V_adversarial": 0.7134000000000001,
+      "V_unrestricted": 0.7134000000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.372220039367676
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8387349835674596,
+      "V_full_rev": 0.8387349835674596,
+      "V_full_pool": 0.887929303144064,
+      "V_adversarial": 0.8717522338538072,
+      "V_unrestricted": 0.8879293031440639,
+      "gap": 0.04919431957660436,
+      "is_counterexample": true,
+      "runtime_sec": 7.8129799365997314
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.77658,
+      "V_full_rev": 0.7717200000000001,
+      "V_full_pool": 0.77658,
+      "V_adversarial": 0.7765799999999999,
+      "V_unrestricted": 0.77658,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.048135280609131
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9786428571428573,
+      "V_full_rev": 0.9786428571428573,
+      "V_full_pool": 1.095,
+      "V_adversarial": 0.9786428571428573,
+      "V_unrestricted": 1.0950000000000002,
+      "gap": 0.11635714285714294,
+      "is_counterexample": true,
+      "runtime_sec": 32.32537031173706
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.695565,
+      "V_full_rev": 0.695565,
+      "V_full_pool": 0.695565,
+      "V_adversarial": 0.695565,
+      "V_unrestricted": 0.695565,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.454552412033081
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8587857142857144,
+      "V_full_rev": 0.8587857142857144,
+      "V_full_pool": 0.905,
+      "V_adversarial": 0.8992142857142859,
+      "V_unrestricted": 0.905,
+      "gap": 0.04621428571428565,
+      "is_counterexample": true,
+      "runtime_sec": 1.577723741531372
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.7571654999999999,
+      "V_full_rev": 0.7523055000000001,
+      "V_full_pool": 0.7571654999999999,
+      "V_adversarial": 0.7571655000000002,
+      "V_unrestricted": 0.7571654999999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.5654289722442627
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.73851,
+      "V_full_rev": 0.7293974999999999,
+      "V_full_pool": 0.7385100000000002,
+      "V_adversarial": 0.73851,
+      "V_unrestricted": 0.73851,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 6.332770824432373
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.9803571428571429,
+      "V_full_rev": 0.9803571428571429,
+      "V_full_pool": 1.047857142857143,
+      "V_adversarial": 1.0120408163265306,
+      "V_unrestricted": 1.047857142857143,
+      "gap": 0.06750000000000012,
+      "is_counterexample": true,
+      "runtime_sec": 2.9195477962493896
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.7200472499999999,
+      "V_full_rev": 0.7094160000000002,
+      "V_full_pool": 0.72004725,
+      "V_adversarial": 0.7200472500000001,
+      "V_unrestricted": 0.72004725,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 5.355410575866699
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.40225999999999995,
+      "V_full_rev": 0.40225999999999995,
+      "V_full_pool": 0.4022599999999999,
+      "V_adversarial": 0.4022600000000001,
+      "V_unrestricted": 0.40225999999999995,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.0459022521972656
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 1.1380664878232554,
+      "V_full_rev": 1.1380664878232554,
+      "V_full_pool": 1.1429522994562495,
+      "V_adversarial": 1.1429522994562495,
+      "V_unrestricted": 1.1429522994562498,
+      "gap": 0.004885811632994397,
+      "is_counterexample": true,
+      "runtime_sec": 3.615272283554077
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 1.0754464285714287,
+      "V_full_rev": 1.0754464285714287,
+      "V_full_pool": 1.155,
+      "V_adversarial": 1.0836428571428574,
+      "V_unrestricted": 1.1550000000000002,
+      "gap": 0.07955357142857156,
+      "is_counterexample": true,
+      "runtime_sec": 8.983010053634644
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 1.01593877051639,
+      "V_full_rev": 1.01593877051639,
+      "V_full_pool": 1.0979293031440638,
+      "V_adversarial": 1.070967520993636,
+      "V_unrestricted": 1.097929303144064,
+      "gap": 0.08199053262767397,
+      "is_counterexample": true,
+      "runtime_sec": 6.7726359367370605
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.43806199999999995,
+      "V_full_rev": 0.43331,
+      "V_full_pool": 0.43806199999999995,
+      "V_adversarial": 0.4380619999999999,
+      "V_unrestricted": 0.43806199999999995,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.6281535625457764
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.416489,
+      "V_full_rev": 0.4096377499999999,
+      "V_full_pool": 0.41648899999999994,
+      "V_adversarial": 0.41648899999999994,
+      "V_unrestricted": 0.41648899999999994,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 4.5944907665252686
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4190267749999999,
+      "V_full_rev": 0.41131489999999993,
+      "V_full_pool": 0.3995267749999999,
+      "V_adversarial": 0.41131489999999993,
+      "V_unrestricted": 0.41902677499999996,
+      "gap": 5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 4.868723154067993
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6583571428571428,
+      "V_full_rev": 0.6583571428571428,
+      "V_full_pool": 0.695,
+      "V_adversarial": 0.6658142857142857,
+      "V_unrestricted": 0.6950000000000002,
+      "gap": 0.03664285714285742,
+      "is_counterexample": true,
+      "runtime_sec": 3.897961139678955
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5552321428571428,
+      "V_full_rev": 0.5552321428571428,
+      "V_full_pool": 0.5878571428571429,
+      "V_adversarial": 0.5788112244897958,
+      "V_unrestricted": 0.5878571428571429,
+      "gap": 0.032625000000000015,
+      "is_counterexample": true,
+      "runtime_sec": 2.302016019821167
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.49383900000000003,
+      "V_full_rev": 0.49312350000000005,
+      "V_full_pool": 0.489339,
+      "V_adversarial": 0.49312350000000005,
+      "V_unrestricted": 0.493839,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 96.94212031364441
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.550065,
+      "V_full_rev": 0.5488724999999999,
+      "V_full_pool": 0.5455650000000001,
+      "V_adversarial": 0.5488724999999999,
+      "V_unrestricted": 0.550065,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 97.48170900344849
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5307993,
+      "V_full_rev": 0.5224833000000001,
+      "V_full_pool": 0.5262993000000001,
+      "V_adversarial": 0.5262993,
+      "V_unrestricted": 0.5307993000000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 98.03666090965271
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.43,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6116655,
+      "V_full_rev": 0.5978055000000001,
+      "V_full_pool": 0.6071655000000002,
+      "V_adversarial": 0.6071655000000001,
+      "V_unrestricted": 0.6116655,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 97.33141803741455
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6820586728642195,
+      "V_full_rev": 0.6820586728642195,
+      "V_full_pool": 0.6829522994562496,
+      "V_adversarial": 0.6829522994562495,
+      "V_unrestricted": 0.6829522994562496,
+      "gap": 0.0008936265920300723,
+      "is_counterexample": true,
+      "runtime_sec": 3.3350634574890137
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.45709999999999995,
+      "V_full_rev": 0.4571,
+      "V_full_pool": 0.45709999999999984,
+      "V_adversarial": 0.4571000000000001,
+      "V_unrestricted": 0.45709999999999995,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 2.997745990753174
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.51677,
+      "V_full_rev": 0.50885,
+      "V_full_pool": 0.51677,
+      "V_adversarial": 0.51677,
+      "V_unrestricted": 0.51677,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 4.023345708847046
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.5989680013217151,
+      "V_full_rev": 0.5989680013217151,
+      "V_full_pool": 0.6379293031440638,
+      "V_adversarial": 0.6339009599254879,
+      "V_unrestricted": 0.6379293031440637,
+      "gap": 0.03896130182234858,
+      "is_counterexample": true,
+      "runtime_sec": 5.729924440383911
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.480815,
+      "V_full_rev": 0.4693962499999999,
+      "V_full_pool": 0.4808149999999999,
+      "V_adversarial": 0.4808149999999999,
+      "V_unrestricted": 0.48081499999999994,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 4.8021910190582275
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4820446249999999,
+      "V_full_rev": 0.46919149999999993,
+      "V_full_pool": 0.4625446249999998,
+      "V_adversarial": 0.46919149999999993,
+      "V_unrestricted": 0.48204462499999984,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 4.322372198104858
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.5652957307344328,
+      "V_full_rev": 0.5652957307344328,
+      "V_full_pool": 0.6264383650532375,
+      "V_adversarial": 0.5700290226812482,
+      "V_unrestricted": 0.6264383650532374,
+      "gap": 0.06114263431880451,
+      "is_counterexample": true,
+      "runtime_sec": 19.638176679611206
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6834821428571428,
+      "V_full_rev": 0.6834821428571429,
+      "V_full_pool": 0.7378571428571429,
+      "V_adversarial": 0.7227806122448979,
+      "V_unrestricted": 0.7378571428571429,
+      "gap": 0.05437500000000006,
+      "is_counterexample": true,
+      "runtime_sec": 2.4763946533203125
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8017726345980328,
+      "V_full_rev": 0.8017726345980328,
+      "V_full_pool": 0.8764383650532375,
+      "V_adversarial": 0.804799061365249,
+      "V_unrestricted": 0.8764383650532376,
+      "gap": 0.07466573045520475,
+      "is_counterexample": true,
+      "runtime_sec": 55.184768199920654
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7839285714285714,
+      "V_full_rev": 0.7839285714285714,
+      "V_full_pool": 0.845,
+      "V_adversarial": 0.7963571428571429,
+      "V_unrestricted": 0.8450000000000001,
+      "gap": 0.061071428571428665,
+      "is_counterexample": true,
+      "runtime_sec": 5.187028169631958
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8314629218028661,
+      "V_full_rev": 0.8314629218028661,
+      "V_full_pool": 0.8329522994562496,
+      "V_adversarial": 0.8329522994562495,
+      "V_unrestricted": 0.8329522994562497,
+      "gap": 0.001489377653383639,
+      "is_counterexample": true,
+      "runtime_sec": 3.3341052532196045
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.722993800106816,
+      "V_full_rev": 0.722993800106816,
+      "V_full_pool": 0.7879293031440638,
+      "V_adversarial": 0.7812153977797708,
+      "V_unrestricted": 0.7879293031440638,
+      "gap": 0.06493550303724782,
+      "is_counterexample": true,
+      "runtime_sec": 6.414048194885254
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.493839,
+      "V_full_rev": 0.4938389999999999,
+      "V_full_pool": 0.48933899999999997,
+      "V_adversarial": 0.493839,
+      "V_unrestricted": 0.49383900000000003,
+      "gap": 5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 97.22502064704895
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9619954809612294,
+      "V_full_rev": 0.9619954809612294,
+      "V_full_pool": 1.0864383650532372,
+      "V_adversarial": 0.9670395255732568,
+      "V_unrestricted": 1.0864383650532374,
+      "gap": 0.12444288409200799,
+      "is_counterexample": true,
+      "runtime_sec": 49.50268030166626
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5162599999999999,
+      "V_full_rev": 0.5136590000000001,
+      "V_full_pool": 0.5162599999999999,
+      "V_adversarial": 0.5162600000000002,
+      "V_unrestricted": 0.5162599999999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.471118927001953
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7177990613652491,
+      "V_full_rev": 0.7177990613652491,
+      "V_full_pool": 0.8164383650532374,
+      "V_adversarial": 0.7177990613652492,
+      "V_unrestricted": 0.8164383650532375,
+      "gap": 0.09863930368798846,
+      "is_counterexample": true,
+      "runtime_sec": 98.85008025169373
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5307993,
+      "V_full_rev": 0.5303133000000001,
+      "V_full_pool": 0.5262993,
+      "V_adversarial": 0.5303133,
+      "V_unrestricted": 0.5307993000000003,
+      "gap": 3.3306690738754696e-16,
+      "is_counterexample": false,
+      "runtime_sec": 102.69720578193665
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6745339745218963,
+      "V_full_rev": 0.6745339745218963,
+      "V_full_pool": 0.7764383650532374,
+      "V_adversarial": 0.6824227944332556,
+      "V_unrestricted": 0.7764383650532375,
+      "gap": 0.10190439053134115,
+      "is_counterexample": true,
+      "runtime_sec": 16.18379783630371
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.530489,
+      "V_full_rev": 0.5172545000000001,
+      "V_full_pool": 0.530489,
+      "V_adversarial": 0.529877,
+      "V_unrestricted": 0.5304889999999999,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 9.479013204574585
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.552062,
+      "V_full_rev": 0.53921,
+      "V_full_pool": 0.5520619999999999,
+      "V_adversarial": 0.5496139999999999,
+      "V_unrestricted": 0.552062,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 10.548837423324585
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6287321428571429,
+      "V_full_rev": 0.6287321428571429,
+      "V_full_pool": 0.6478571428571429,
+      "V_adversarial": 0.6478571428571429,
+      "V_unrestricted": 0.6478571428571429,
+      "gap": 0.01912500000000006,
+      "is_counterexample": true,
+      "runtime_sec": 1.4084575176239014
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7342357142857143,
+      "V_full_rev": 0.7342357142857143,
+      "V_full_pool": 0.755,
+      "V_adversarial": 0.7528142857142858,
+      "V_unrestricted": 0.7550000000000001,
+      "gap": 0.02076428571428579,
+      "is_counterexample": true,
+      "runtime_sec": 1.7010483741760254
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6116655,
+      "V_full_rev": 0.6108555,
+      "V_full_pool": 0.6071655,
+      "V_adversarial": 0.6108554999999999,
+      "V_unrestricted": 0.6116655000000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 99.12646007537842
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7429522994562496,
+      "V_full_rev": 0.7429522994562496,
+      "V_full_pool": 0.7429522994562496,
+      "V_adversarial": 0.7429522994562495,
+      "V_unrestricted": 0.7429522994562495,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.1284902095794678
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.524026775,
+      "V_full_rev": 0.5104575875,
+      "V_full_pool": 0.5135267749999999,
+      "V_adversarial": 0.513220775,
+      "V_unrestricted": 0.5240267750000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 10.059810400009155
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5500649999999998,
+      "V_full_rev": 0.5500649999999999,
+      "V_full_pool": 0.545565,
+      "V_adversarial": 0.5500649999999999,
+      "V_unrestricted": 0.550065,
+      "gap": 2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 102.95431852340698
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6071000000000001,
+      "V_full_rev": 0.6027650000000001,
+      "V_full_pool": 0.6070999999999999,
+      "V_adversarial": 0.6071000000000002,
+      "V_unrestricted": 0.6071000000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.5548088550567627
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6752779615664837,
+      "V_full_rev": 0.6752779615664837,
+      "V_full_pool": 0.6979293031440639,
+      "V_adversarial": 0.6979293031440638,
+      "V_unrestricted": 0.6979293031440639,
+      "gap": 0.022651341577580197,
+      "is_counterexample": true,
+      "runtime_sec": 4.61329197883606
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.2,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8620395255732568,
+      "V_full_rev": 0.8620395255732568,
+      "V_full_pool": 1.0264383650532372,
+      "V_adversarial": 0.8620395255732568,
+      "V_unrestricted": 1.0264383650532374,
+      "gap": 0.16439883947998057,
+      "is_counterexample": true,
+      "runtime_sec": 98.96507477760315
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.647795730734433,
+      "V_full_rev": 0.647795730734433,
+      "V_full_pool": 0.6864383650532375,
+      "V_adversarial": 0.6570290226812483,
+      "V_unrestricted": 0.6864383650532375,
+      "gap": 0.03864263431880455,
+      "is_counterexample": true,
+      "runtime_sec": 8.372144222259521
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8703928571428572,
+      "V_full_rev": 0.8703928571428572,
+      "V_full_pool": 0.905,
+      "V_adversarial": 0.901357142857143,
+      "V_unrestricted": 0.9050000000000001,
+      "gap": 0.03460714285714295,
+      "is_counterexample": true,
+      "runtime_sec": 1.9144840240478516
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.630815,
+      "V_full_rev": 0.6087575,
+      "V_full_pool": 0.6308149999999999,
+      "V_adversarial": 0.6297949999999999,
+      "V_unrestricted": 0.6308150000000001,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 6.563346862792969
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.765982142857143,
+      "V_full_rev": 0.7659821428571428,
+      "V_full_pool": 0.7978571428571429,
+      "V_adversarial": 0.7978571428571429,
+      "V_unrestricted": 0.7978571428571428,
+      "gap": 0.031874999999999876,
+      "is_counterexample": true,
+      "runtime_sec": 1.3766050338745117
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6230446249999999,
+      "V_full_rev": 0.6004293125,
+      "V_full_pool": 0.6125446249999998,
+      "V_adversarial": 0.6120346249999999,
+      "V_unrestricted": 0.6230446249999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 7.031129360198975
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.4609071428571428,
+      "V_full_rev": 0.4609071428571428,
+      "V_full_pool": 0.44499999999999995,
+      "V_adversarial": 0.4635714285714285,
+      "V_unrestricted": 0.47000333108170794,
+      "gap": 0.00909618822456515,
+      "is_counterexample": true,
+      "runtime_sec": 64.93217372894287
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8929522994562495,
+      "V_full_rev": 0.8929522994562495,
+      "V_full_pool": 0.8929522994562497,
+      "V_adversarial": 0.8929522994562497,
+      "V_unrestricted": 0.8929522994562497,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.472019672393799
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8101770671814302,
+      "V_full_rev": 0.8101770671814302,
+      "V_full_pool": 0.8479293031440639,
+      "V_adversarial": 0.8479293031440638,
+      "V_unrestricted": 0.8479293031440638,
+      "gap": 0.03775223596263355,
+      "is_counterexample": true,
+      "runtime_sec": 4.856705188751221
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.66677,
+      "V_full_rev": 0.6453499999999999,
+      "V_full_pool": 0.66677,
+      "V_adversarial": 0.66269,
+      "V_unrestricted": 0.66677,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 12.82739543914795
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.4022600000000003,
+      "V_full_rev": 0.40226000000000023,
+      "V_full_pool": 0.4022600000000003,
+      "V_adversarial": 0.4022600000000004,
+      "V_unrestricted": 0.4022600000000003,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 2.8973186016082764
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7720339745218966,
+      "V_full_rev": 0.7720339745218966,
+      "V_full_pool": 0.8364383650532374,
+      "V_adversarial": 0.7874227944332556,
+      "V_unrestricted": 0.8364383650532373,
+      "gap": 0.06440439053134073,
+      "is_counterexample": true,
+      "runtime_sec": 8.180677652359009
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.43806200000000034,
+      "V_full_rev": 0.43806200000000034,
+      "V_full_pool": 0.43806200000000023,
+      "V_adversarial": 0.43806200000000034,
+      "V_unrestricted": 0.43806200000000023,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.1561872959136963
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4164890000000003,
+      "V_full_rev": 0.41507150000000026,
+      "V_full_pool": 0.4164890000000003,
+      "V_adversarial": 0.4164890000000003,
+      "V_unrestricted": 0.4164890000000003,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 4.537292718887329
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5265267857142859,
+      "V_full_rev": 0.5265267857142859,
+      "V_full_pool": 0.5350000000000001,
+      "V_adversarial": 0.5265267857142859,
+      "V_unrestricted": 0.5350000000000003,
+      "gap": 0.008473214285714348,
+      "is_counterexample": true,
+      "runtime_sec": 4.090456962585449
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.41902677500000024,
+      "V_full_rev": 0.4175333375000002,
+      "V_full_pool": 0.3995267750000002,
+      "V_adversarial": 0.4175333375000002,
+      "V_unrestricted": 0.41902677500000013,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 4.8660430908203125
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5180410714285714,
+      "V_full_rev": 0.5180410714285714,
+      "V_full_pool": 0.505,
+      "V_adversarial": 0.5180410714285714,
+      "V_unrestricted": 0.5233050847206124,
+      "gap": 0.00526401329204107,
+      "is_counterexample": true,
+      "runtime_sec": 31.523615837097168
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6591160714285715,
+      "V_full_rev": 0.6591160714285715,
+      "V_full_pool": 0.655,
+      "V_adversarial": 0.6591160714285715,
+      "V_unrestricted": 0.6733050847041722,
+      "gap": 0.014189013275600626,
+      "is_counterexample": true,
+      "runtime_sec": 32.90115308761597
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.762939866506838,
+      "V_full_rev": 0.762939866506838,
+      "V_full_pool": 0.7729522994562497,
+      "V_adversarial": 0.7729522994562499,
+      "V_unrestricted": 0.7729522994562499,
+      "gap": 0.010012432949411898,
+      "is_counterexample": true,
+      "runtime_sec": 3.804892063140869
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4400604499999999,
+      "V_full_rev": 0.43393144999999994,
+      "V_full_pool": 0.42056045000000003,
+      "V_adversarial": 0.43393144999999994,
+      "V_unrestricted": 0.4400604499999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 98.1172924041748
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.4571000000000004,
+      "V_full_rev": 0.4571000000000003,
+      "V_full_pool": 0.4571000000000004,
+      "V_adversarial": 0.4571000000000004,
+      "V_unrestricted": 0.45710000000000034,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 3.18271803855896
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5167700000000003,
+      "V_full_rev": 0.5167700000000004,
+      "V_full_pool": 0.5167700000000003,
+      "V_adversarial": 0.5167700000000004,
+      "V_unrestricted": 0.5167700000000003,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 2.9470176696777344
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6589680013217155,
+      "V_full_rev": 0.6589680013217155,
+      "V_full_pool": 0.7279293031440641,
+      "V_adversarial": 0.678900959925488,
+      "V_unrestricted": 0.7279293031440641,
+      "gap": 0.06896130182234861,
+      "is_counterexample": true,
+      "runtime_sec": 23.17295813560486
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.593892857142857,
+      "V_full_rev": 0.593892857142857,
+      "V_full_pool": 0.595,
+      "V_adversarial": 0.6135714285714285,
+      "V_unrestricted": 0.620003331112555,
+      "gap": 0.02611047396969801,
+      "is_counterexample": true,
+      "runtime_sec": 72.33839750289917
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4051534999999999,
+      "V_full_rev": 0.40482274999999995,
+      "V_full_pool": 0.3856534999999999,
+      "V_adversarial": 0.4048227499999999,
+      "V_unrestricted": 0.4051534999999998,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 104.13613414764404
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4808150000000003,
+      "V_full_rev": 0.4784525000000004,
+      "V_full_pool": 0.48081500000000027,
+      "V_adversarial": 0.48081500000000027,
+      "V_unrestricted": 0.4808150000000004,
+      "gap": 5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 4.426401853561401
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7032589285714288,
+      "V_full_rev": 0.7032589285714288,
+      "V_full_pool": 0.745,
+      "V_adversarial": 0.7032589285714288,
+      "V_unrestricted": 0.7450000000000001,
+      "gap": 0.04174107142857131,
+      "is_counterexample": true,
+      "runtime_sec": 3.058339834213257
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6227321428571431,
+      "V_full_rev": 0.6227321428571431,
+      "V_full_pool": 0.6778571428571429,
+      "V_adversarial": 0.6238112244897962,
+      "V_unrestricted": 0.6778571428571432,
+      "gap": 0.05512500000000009,
+      "is_counterexample": true,
+      "runtime_sec": 32.40981960296631
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.48204462500000034,
+      "V_full_rev": 0.47955556250000025,
+      "V_full_pool": 0.4625446250000002,
+      "V_adversarial": 0.4795555625000003,
+      "V_unrestricted": 0.4820446250000001,
+      "gap": -2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 4.8566062450408936
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7108142857142858,
+      "V_full_rev": 0.7108142857142858,
+      "V_full_pool": 0.7850000000000001,
+      "V_adversarial": 0.710814285714286,
+      "V_unrestricted": 0.7850000000000003,
+      "gap": 0.07418571428571441,
+      "is_counterexample": true,
+      "runtime_sec": 34.861653327941895
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.9662649112072302,
+      "V_full_rev": 0.9662649112072302,
+      "V_full_pool": 0.9829522994562496,
+      "V_adversarial": 0.9829522994562498,
+      "V_unrestricted": 0.9829522994562498,
+      "gap": 0.016687388249019608,
+      "is_counterexample": true,
+      "runtime_sec": 4.196097373962402
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5162600000000002,
+      "V_full_rev": 0.5162600000000002,
+      "V_full_pool": 0.5162600000000002,
+      "V_adversarial": 0.5162600000000003,
+      "V_unrestricted": 0.5162600000000003,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 3.1969385147094727
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5520620000000003,
+      "V_full_rev": 0.5501180000000002,
+      "V_full_pool": 0.5520620000000002,
+      "V_adversarial": 0.552062,
+      "V_unrestricted": 0.5520620000000003,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 2.863435983657837
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.4589224999999999,
+      "V_full_rev": 0.45837124999999984,
+      "V_full_pool": 0.43942249999999994,
+      "V_adversarial": 0.4583712499999999,
+      "V_unrestricted": 0.45892249999999984,
+      "gap": -5.551115123125783e-17,
+      "is_counterexample": false,
+      "runtime_sec": 97.5711395740509
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5304890000000002,
+      "V_full_rev": 0.5263377500000002,
+      "V_full_pool": 0.5304890000000002,
+      "V_adversarial": 0.5304890000000001,
+      "V_unrestricted": 0.5304890000000002,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 7.162689685821533
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.53,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5171007499999999,
+      "V_full_rev": 0.5068857499999998,
+      "V_full_pool": 0.49760075000000004,
+      "V_adversarial": 0.5068857499999999,
+      "V_unrestricted": 0.51710075,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 98.14112424850464
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8229938001068162,
+      "V_full_rev": 0.8229938001068162,
+      "V_full_pool": 0.9379293031440642,
+      "V_adversarial": 0.856215397779771,
+      "V_unrestricted": 0.9379293031440642,
+      "gap": 0.11493550303724798,
+      "is_counterexample": true,
+      "runtime_sec": 21.543022394180298
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.586907142857143,
+      "V_full_rev": 0.586907142857143,
+      "V_full_pool": 0.595,
+      "V_adversarial": 0.586907142857143,
+      "V_unrestricted": 0.5950000000000002,
+      "gap": 0.008092857142857235,
+      "is_counterexample": true,
+      "runtime_sec": 2.120476245880127
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5240267750000002,
+      "V_full_rev": 0.5190149000000001,
+      "V_full_pool": 0.5135267750000001,
+      "V_adversarial": 0.5190149000000002,
+      "V_unrestricted": 0.5240267750000001,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 9.20286774635315
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.795982142857143,
+      "V_full_rev": 0.795982142857143,
+      "V_full_pool": 0.8878571428571429,
+      "V_adversarial": 0.7977806122448983,
+      "V_unrestricted": 0.887857142857143,
+      "gap": 0.09187500000000004,
+      "is_counterexample": true,
+      "runtime_sec": 32.05831599235535
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8713571428571432,
+      "V_full_rev": 0.8713571428571432,
+      "V_full_pool": 0.9950000000000001,
+      "V_adversarial": 0.8713571428571432,
+      "V_unrestricted": 0.9950000000000001,
+      "gap": 0.12364285714285694,
+      "is_counterexample": true,
+      "runtime_sec": 34.92257809638977
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.696232142857143,
+      "V_full_rev": 0.6962321428571431,
+      "V_full_pool": 0.737857142857143,
+      "V_adversarial": 0.7108112244897962,
+      "V_unrestricted": 0.7378571428571431,
+      "gap": 0.041625000000000134,
+      "is_counterexample": true,
+      "runtime_sec": 5.237929105758667
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5101534999999999,
+      "V_full_rev": 0.5068639999999999,
+      "V_full_pool": 0.4996535,
+      "V_adversarial": 0.506864,
+      "V_unrestricted": 0.5101534999999999,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 98.49263834953308
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.544245725,
+      "V_full_rev": 0.5308314499999998,
+      "V_full_pool": 0.5345604500000001,
+      "V_adversarial": 0.5345604500000001,
+      "V_unrestricted": 0.54506045,
+      "gap": 0.0008147250000000161,
+      "is_counterexample": true,
+      "runtime_sec": 98.73012614250183
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8290586728642196,
+      "V_full_rev": 0.8290586728642196,
+      "V_full_pool": 0.8329522994562497,
+      "V_adversarial": 0.8329522994562497,
+      "V_unrestricted": 0.8329522994562498,
+      "gap": 0.003893626592030186,
+      "is_counterexample": true,
+      "runtime_sec": 3.028745651245117
+    },
+    {
+      "label": "nested_L0_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.6071000000000003,
+      "V_full_rev": 0.6071000000000003,
+      "V_full_pool": 0.6071000000000002,
+      "V_adversarial": 0.6071000000000003,
+      "V_unrestricted": 0.6071000000000006,
+      "gap": 3.3306690738754696e-16,
+      "is_counterexample": false,
+      "runtime_sec": 4.925453424453735
+    },
+    {
+      "label": "nested_L0_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6667700000000001,
+      "V_full_rev": 0.6635300000000002,
+      "V_full_pool": 0.6667700000000001,
+      "V_adversarial": 0.6667700000000001,
+      "V_unrestricted": 0.6667700000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 3.0359320640563965
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.794857142857143,
+      "V_full_rev": 0.794857142857143,
+      "V_full_pool": 0.8450000000000002,
+      "V_adversarial": 0.7978142857142859,
+      "V_unrestricted": 0.8450000000000001,
+      "gap": 0.050142857142857045,
+      "is_counterexample": true,
+      "runtime_sec": 16.260411739349365
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7369680013217154,
+      "V_full_rev": 0.7369680013217154,
+      "V_full_pool": 0.7879293031440642,
+      "V_adversarial": 0.765900959925488,
+      "V_unrestricted": 0.7879293031440641,
+      "gap": 0.050961301822348704,
+      "is_counterexample": true,
+      "runtime_sec": 10.532340288162231
+    },
+    {
+      "label": "nested_L0_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6308150000000001,
+      "V_full_rev": 0.62389625,
+      "V_full_pool": 0.6308150000000001,
+      "V_adversarial": 0.6308150000000002,
+      "V_unrestricted": 0.6308150000000002,
+      "gap": 1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 6.426659345626831
+    },
+    {
+      "label": "corr_positive_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.7738928571428573,
+      "V_full_rev": 0.7738928571428573,
+      "V_full_pool": 0.8049999999999999,
+      "V_adversarial": 0.7882857142857143,
+      "V_unrestricted": 0.8049999999999999,
+      "gap": 0.031107142857142667,
+      "is_counterexample": true,
+      "runtime_sec": 1.78481125831604
+    },
+    {
+      "label": "nested_L1_Q2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 16,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.623044625,
+      "V_full_rev": 0.6146915000000002,
+      "V_full_pool": 0.6125446250000001,
+      "V_adversarial": 0.6146915000000002,
+      "V_unrestricted": 0.623044625,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 6.355688810348511
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5999224999999998,
+      "V_full_rev": 0.59444,
+      "V_full_pool": 0.5894225,
+      "V_adversarial": 0.59444,
+      "V_unrestricted": 0.5999224999999998,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 99.21168541908264
+    },
+    {
+      "label": "corr_nonlinear_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.8784821428571429,
+      "V_full_rev": 0.878482142857143,
+      "V_full_pool": 0.9478571428571428,
+      "V_adversarial": 0.9027806122448981,
+      "V_unrestricted": 0.9478571428571431,
+      "gap": 0.06937500000000019,
+      "is_counterexample": true,
+      "runtime_sec": 5.159921407699585
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.25,
+        "w1": 0.47000000000000003,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": false,
+        "A3": true
+      },
+      "V_SM": 0.6567428749999998,
+      "V_full_rev": 0.63438575,
+      "V_full_pool": 0.6476007500000001,
+      "V_adversarial": 0.64760075,
+      "V_unrestricted": 0.6581007500000002,
+      "gap": 0.001357875000000397,
+      "is_counterexample": true,
+      "runtime_sec": 100.25709629058838
+    },
+    {
+      "label": "corr_random_s2",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 1.0364629218028663,
+      "V_full_rev": 1.0364629218028663,
+      "V_full_pool": 1.0429522994562497,
+      "V_adversarial": 1.0429522994562497,
+      "V_unrestricted": 1.0429522994562497,
+      "gap": 0.006489377653383421,
+      "is_counterexample": true,
+      "runtime_sec": 3.260037899017334
+    },
+    {
+      "label": "corr_random_s1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9129938001068161,
+      "V_full_rev": 0.9129938001068161,
+      "V_full_pool": 0.9979293031440641,
+      "V_adversarial": 0.9612153977797707,
+      "V_unrestricted": 0.997929303144064,
+      "gap": 0.08493550303724795,
+      "is_counterexample": true,
+      "runtime_sec": 8.415239095687866
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.4051535000000002,
+      "V_full_rev": 0.4051535000000002,
+      "V_full_pool": 0.38565350000000015,
+      "V_adversarial": 0.4051535000000002,
+      "V_unrestricted": 0.4051535000000002,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 97.584557056427
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.4400604500000002,
+      "V_full_rev": 0.44006045000000016,
+      "V_full_pool": 0.42056045000000036,
+      "V_adversarial": 0.4400604500000002,
+      "V_unrestricted": 0.4400604500000001,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 97.27724528312683
+    },
+    {
+      "label": "corr_negative_n8_s42",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 8,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.9714285714285715,
+      "V_full_rev": 0.9714285714285715,
+      "V_full_pool": 1.0550000000000002,
+      "V_adversarial": 0.9763571428571429,
+      "V_unrestricted": 1.055,
+      "gap": 0.08357142857142841,
+      "is_counterexample": true,
+      "runtime_sec": 20.14492917060852
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.6150290226812487,
+      "V_full_rev": 0.6150290226812487,
+      "V_full_pool": 0.7164383650532377,
+      "V_adversarial": 0.6150290226812487,
+      "V_unrestricted": 0.7164383650532377,
+      "gap": 0.10140934237198895,
+      "is_counterexample": true,
+      "runtime_sec": 99.56193494796753
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7002957307344331,
+      "V_full_rev": 0.7002957307344331,
+      "V_full_pool": 0.7764383650532376,
+      "V_adversarial": 0.7020290226812486,
+      "V_unrestricted": 0.7764383650532376,
+      "gap": 0.07614263431880453,
+      "is_counterexample": true,
+      "runtime_sec": 51.75236988067627
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.45892250000000023,
+      "V_full_rev": 0.45892250000000023,
+      "V_full_pool": 0.43942250000000016,
+      "V_adversarial": 0.4589225000000003,
+      "V_unrestricted": 0.45892250000000023,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 95.16203474998474
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5171007500000002,
+      "V_full_rev": 0.5171007500000001,
+      "V_full_pool": 0.4976007500000004,
+      "V_adversarial": 0.5171007500000002,
+      "V_unrestricted": 0.51710075,
+      "gap": -2.220446049250313e-16,
+      "is_counterexample": false,
+      "runtime_sec": 94.44795346260071
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.6299999999999999,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.7574227944332561,
+      "V_full_rev": 0.7574227944332561,
+      "V_full_pool": 0.9264383650532375,
+      "V_adversarial": 0.7574227944332561,
+      "V_unrestricted": 0.9264383650532376,
+      "gap": 0.16901557061998151,
+      "is_counterexample": true,
+      "runtime_sec": 97.0355155467987
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5101535,
+      "V_full_rev": 0.5101535000000001,
+      "V_full_pool": 0.4996535000000001,
+      "V_adversarial": 0.5101535,
+      "V_unrestricted": 0.5101534999999944,
+      "gap": -5.662137425588298e-15,
+      "is_counterexample": false,
+      "runtime_sec": 92.7273428440094
+    },
+    {
+      "label": "corr_random_s0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": false,
+        "A2": false,
+        "A3": false
+      },
+      "V_SM": 0.8595339745218968,
+      "V_full_rev": 0.8595339745218968,
+      "V_full_pool": 0.9864383650532376,
+      "V_adversarial": 0.862422794433256,
+      "V_unrestricted": 0.9864383650532376,
+      "gap": 0.12690439053134073,
+      "is_counterexample": true,
+      "runtime_sec": 65.59543943405151
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 0.9
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.5450604500000001,
+      "V_full_rev": 0.5429139500000001,
+      "V_full_pool": 0.5345604500000003,
+      "V_adversarial": 0.5429139500000001,
+      "V_unrestricted": 0.5450604500000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 95.31712985038757
+    },
+    {
+      "label": "nested_L1_Q1",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": true
+      },
+      "V_SM": 0.6581007500000001,
+      "V_full_rev": 0.6545232500000002,
+      "V_full_pool": 0.6476007500000003,
+      "V_adversarial": 0.6545232500000002,
+      "V_unrestricted": 0.65810075,
+      "gap": -1.1102230246251565e-16,
+      "is_counterexample": false,
+      "runtime_sec": 91.04700112342834
+    },
+    {
+      "label": "nested_L1_Q0",
+      "params": {
+        "y_L": 0.0,
+        "y_bar": 1.0,
+        "y_under": 0.3,
+        "y_H": 2.0,
+        "sigma": 0.35,
+        "w1": 0.57,
+        "delta": 1.5
+      },
+      "n_atoms": 12,
+      "n_types": 3,
+      "conditions": {
+        "A1": true,
+        "A2": true,
+        "A3": false
+      },
+      "V_SM": 0.5999225000000001,
+      "V_full_rev": 0.5999225000000001,
+      "V_full_pool": 0.5894225,
+      "V_adversarial": 0.5999225000000001,
+      "V_unrestricted": 0.5999225000000001,
+      "gap": 0.0,
+      "is_counterexample": false,
+      "runtime_sec": 91.5823712348938
+    }
+  ]
+}
