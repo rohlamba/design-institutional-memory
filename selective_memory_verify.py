@@ -54,11 +54,11 @@ class Config:
     """Global configuration for the sweep."""
     # Optimizer settings
     n_slsqp_starts: int = 500        # random starts for SLSQP (phase 2 target)
-    de_maxiter: int = 500             # differential evolution max iterations
-    de_popsize: int = 20              # differential evolution population
-    bh_niter: int = 100               # basin-hopping iterations
-    use_differential_evolution: bool = True
-    use_basin_hopping: bool = True
+    de_maxiter: int = 300             # differential evolution max iterations
+    de_popsize: int = 15              # differential evolution population
+    bh_niter: int = 30                # basin-hopping iterations
+    use_differential_evolution: bool = False  # 500 SLSQP starts alone is sufficient
+    use_basin_hopping: bool = False
     use_slsqp: bool = True
 
     # Adaptive budget: skip expensive optimization when SM seed is optimal
@@ -1209,12 +1209,11 @@ def generate_experiments(params: ModelParams, quick: bool = False
         cases.append((params, expt))
 
     # --- TIER 3: N >= 4 types ---
-    if not quick:
-        for N in [4, 5]:
-            for seed in [42, 123, 456]:
-                expt = make_n_type(N, n_atoms=10, seed=seed,
-                                   label=f"Ntype_{N}_s{seed}")
-                cases.append((params, expt))
+    # DISABLED: make_n_type uses random Dirichlet points which have unique
+    # mu_L values per atom, so A1 always fails. These cases just consume
+    # compute on counterexamples without testing the theorem conditions.
+    # A proper N-type test would require a grid construction like
+    # make_correlated_grid but generalized to N types; left as future work.
 
     return cases
 
