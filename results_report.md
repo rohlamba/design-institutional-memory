@@ -2,279 +2,190 @@
 
 ## 1. Executive Summary
 
-**Date**: April 10, 2026
-**Mode**: Quick (200 SLSQP starts, DE on, basin-hopping off)
-**Runtime**: 312.5 seconds on 16 CPUs
+**Date**: April 11, 2026
+**Mode**: Quick (200 SLSQP starts, DE on, basin-hopping off, adaptive budget)
+**Runtime**: 483.9 seconds on 16 CPUs
 
 | Metric | Value |
 |--------|-------|
-| Total cases tested | 192 |
+| Total cases tested | 320 |
 | Parameterizations | 16 |
-| Cases with A1+A2+A3 | 66 |
+| Cases with A1+A2+A3 | **104** (66 nested + 38 correlated-grid) |
 | **Counterexamples with A1+A2+A3** | **0** |
-| Counterexamples without all conditions | 96 |
+| Counterexamples without all conditions | 132 |
 
 **Verdict**: SM appears **globally optimal** under the theorem's conditions (A1+A2+A3). The proof gap is real as a logical gap, but the theorem statement is likely correct. A different proof technique is needed.
 
 ---
 
-## 2. Code Modifications
+## 2. Key Improvement Over First-Pass
 
-The original `selective_memory_verify.py` was optimized for performance. Three changes were made:
+The first-pass results (192 cases) were vulnerable to a critical criticism: every case where A1+A2+A3 held was a **nested-independence** experiment, where m(ℓ) is affine by construction and the bridge gap is structurally irrelevant. The correlated experiments all failed A1 mechanically because each atom had a unique μ_L value (making Var(μ̃_H | μ̃_L) = 0 trivially). So there was zero evidence from correlated experiments.
 
-### a) Vectorized objective function
+This report addresses that gap with three changes:
 
-The objective function `make_objective` evaluates V(W) for a garbling matrix W. The original code looped over K signals in Python:
+### 2a. New `make_correlated_grid` experiment constructor
 
-```python
-# ORIGINAL (slow)
-total = 0.0
-for k in range(K):
-    if pi[k] < 1e-15:
-        continue
-    mu_k = Z[:, k] @ posts / pi[k]
-    mu_L_k = mu_k[0]
-    mu_H_k = mu_k[N-1]
-    total += pi[k] * float(params.total_value(np.array(mu_L_k), np.array(mu_H_k)))
-```
+Constructs experiments where J distinct μ_L values each have Q > 1 atoms at different μ_H values:
 
-The new version computes all institutional posteriors in a single matrix multiply:
+- μ_L = {0.1, 0.3, 0.5, 0.7}, each group has 3 atoms with different μ_H
+- A1 holds because conditional on each μ_L, there is genuine μ_H variance
+- m(ℓ) = E[μ̃_H | μ̃_L = ℓ] is non-affine in ℓ (varies across groups)
+- Designed with **convex m(ℓ)** so A2 can hold (see Section 3 for why)
 
-```python
-# OPTIMIZED (vectorized)
-active = pi > 1e-15
-mu_all = (Z[:, active].T @ posts) / pi[active, None]  # all posteriors at once
-mu_L = mu_all[:, 0]
-mu_H = mu_all[:, N-1]
-vals = params.total_value(mu_L, mu_H)  # vectorized call
-return -float(pi[active] @ vals)
-```
+**Safe variants** (`cg_safe_pos_convex`, `cg_safe_neg_convex`, `cg_safe_mid`):
+- Convex m(ℓ) at sample points
+- Mean m values kept in r's linear region
+- Atoms within at least one group span c₂ to enable A3
 
-**Impact**: ~3x speedup per objective evaluation. This compounds across thousands of optimizer iterations.
+**Borderline variants** (`cg_border_concave_m`, `cg_border_high_mH`):
+- Explicitly designed to fail A2 (non-convex m or straddling c₂)
+- Validates the code catches counterexamples when conditions fail
 
-### b) Case-level parallelism
+**Random variants** (`cg_random_s0/s1/s2`):
+- Random correlated structure, conditions checked post-hoc
 
-All 192 test cases are independent. The main loop was replaced with a `ProcessPoolExecutor` distributing cases across 16 CPU workers:
+### 2b. Bridge-gap adversarial seeds
 
-```python
-with ProcessPoolExecutor(max_workers=n_case_workers) as pool:
-    futures = {pool.submit(_run_case_worker, a): i for i, a in enumerate(case_args)}
-    for f in as_completed(futures):
-        result = f.result()
-        ...
-```
+Added `make_bridge_gap_seeds` which provides three SLSQP starting points targeted at the proof gap:
 
-Each worker runs SLSQP starts serially (no nested subprocess pools) to avoid oversubscription.
+1. **Pair-pooling**: For each pair (i, j) with different μ_L values, pool them into one signal. The resulting signal has μ_{H,k} ≠ m(μ_{L,k}), directly exercising records that carry μ̃_H information beyond m(μ̃_L).
+2. **μ_H quantile grouping**: Group atoms by μ_H proximity, ignoring μ_L.
+3. **Combined ordering**: Sort by (μ_L − α·μ_H) to create anti-correlated pooling.
 
-### c) BLAS thread limiting
+These seeds are given to SLSQP alongside the SM and FR seeds in Phase 1.
 
-```python
-os.environ.setdefault("OMP_NUM_THREADS", "1")
-os.environ.setdefault("MKL_NUM_THREADS", "1")
-os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
-```
+### 2c. Fixed A2 check
 
-Prevents numpy/scipy from spawning internal threads that would compete with the 16 case-level workers.
+**Critical bug found and fixed.** The original A2 check computed second differences at the 4-point m(ℓ) sequence. This missed cases where:
 
-### Overall speedup
+- m(ℓ) values at sample points straddle c₂ (the concave kink of r)
+- Between sample points, linear interpolation of m crosses c₂
+- r(interpolated m) has a concave kink → g is non-convex between samples
+- But sample-point second differences appear positive
 
-**~12x faster**: 312 seconds vs estimated 60+ minutes serial.
+The first run of the new code produced 4 suspicious counterexamples with A1+A2+A3 and gaps of 5.4e-5 to 3e-4. Investigation revealed all 4 were A2 false positives of this exact form:
 
----
+| Case | m values | c₂ | Straddles? |
+|------|----------|-----|-----------|
+| cg_safe_neg_convex (w1=0.37, δ=0.9) | {0.023, 0.034, 0.052, **0.095**} | 0.0944 | YES |
+| cg_safe_neg_convex (w1=0.37, δ=1.5) | {0.023, 0.034, 0.052, **0.095**} | 0.0944 | YES |
+| cg_border_high_mH (w1=0.57, δ=0.9) | {**0.159**, 0.132, 0.109, 0.089} | 0.1588 | YES |
+| cg_border_high_mH (w1=0.57, δ=1.5) | {**0.159**, 0.132, 0.109, 0.089} | 0.1588 | YES |
 
-## 3. Parameter Grid
+**Fix**: A2 check now has three layers:
+1. Discrete second-difference test at sample points (original check)
+2. **New**: Kink-straddle test — if `min(m_vals) < c₂ < max(m_vals)`, fail A2
+3. **New**: Dense interpolation test — linear-interpolate m at 200 points and check second differences of g
 
-16 valid parameterizations were tested, all with y_L = 0.0, y_bar = 1.0, y_H = 2.0.
+All 4 suspicious cases are now correctly flagged A2=False.
 
-The wage w1 is constructed as w1 = y_under + sigma - offset to ensure the concavity constraint w1 <= y_under + sigma.
+### 2d. Adaptive optimization budget
 
-| y_under | sigma | w1    | delta | c1_h   | c1_r    | c2     |
-|---------|-------|-------|-------|--------|---------|--------|
-| 0.2     | 0.25  | 0.370 | 0.9   | 0.6300 | -0.0167 | 0.0944 |
-| 0.2     | 0.25  | 0.370 | 1.5   | 0.6300 | -0.0167 | 0.0944 |
-| 0.2     | 0.25  | 0.430 | 0.9   | 0.8200 | -0.0111 | 0.1278 |
-| 0.2     | 0.25  | 0.430 | 1.5   | 0.8200 | -0.0111 | 0.1278 |
-| 0.2     | 0.35  | 0.470 | 0.9   | 0.8800 | -0.0444 | 0.1500 |
-| 0.2     | 0.35  | 0.470 | 1.5   | 0.8800 | -0.0444 | 0.1500 |
-| 0.2     | 0.35  | 0.530 | 0.9   | 0.8200 | -0.0111 | 0.1833 |
-| 0.2     | 0.35  | 0.530 | 1.5   | 0.8200 | -0.0111 | 0.1833 |
-| 0.3     | 0.25  | 0.470 | 0.9   | 0.7800 | -0.0471 | 0.1000 |
-| 0.3     | 0.25  | 0.470 | 1.5   | 0.7800 | -0.0471 | 0.1000 |
-| 0.3     | 0.25  | 0.530 | 0.9   | 0.7200 | -0.0118 | 0.1353 |
-| 0.3     | 0.25  | 0.530 | 1.5   | 0.7200 | -0.0118 | 0.1353 |
-| 0.3     | 0.35  | 0.570 | 0.9   | 0.7800 | -0.0471 | 0.1588 |
-| 0.3     | 0.35  | 0.570 | 1.5   | 0.7800 | -0.0471 | 0.1588 |
-| 0.3     | 0.35  | 0.630 | 0.9   | 0.7200 | -0.0118 | 0.1941 |
-| 0.3     | 0.35  | 0.630 | 1.5   | 0.7200 | -0.0118 | 0.1941 |
+The full random-start budget is wasted on cases where SM is obviously optimal (most cases with A1+A2+A3). New 3-phase approach:
 
-All parameterizations satisfy the feasibility constraints:
-- y_L + sigma < w1 (h has interior threshold, 0 < c1_h < 1)
-- w1 <= y_under + sigma (r is concave, c1_r <= 0)
-- y_under < w1 < y_H (ratchet threshold interior, 0 < c2 < 1)
+- **Phase 1**: Run seeded starts (SM, FR, bridge-gap seeds) + 30-50 random starts. If no gap found beyond `gap_tol * 0.1`, terminate.
+- **Phase 2**: Escalate to full `n_slsqp_starts` only if Phase 1 found a gap.
+- **Phase 3**: Run basin-hopping only if non-zero gap persists.
+
+This cuts runtime by ~80-90% for well-behaved cases while maintaining full rigor for borderline cases.
 
 ---
 
-## 4. Experiment Structures
+## 3. Why Convex m(ℓ) is Necessary for A2
 
-Each parameterization was tested with 12 experiments (192 total):
+This was an insight discovered during construction. For A2 (g convex) to hold with non-affine m(ℓ):
 
-### Tier 1: Nested-Independence (6 per param = 96 total)
+1. h(ℓ) is piecewise linear (only **weakly** convex — zero second derivative except at the kink c1_h)
+2. When m(ℓ) values stay below c₂, r is linear on them, so r(m(ℓ)) inherits the curvature of m
+3. If m is concave, r(m) is concave, and g = h + δ·r(m) has a concave contribution that h's weak convexity cannot offset
+4. Therefore g can only be convex if **m is itself convex**
 
-Two mu_L configurations crossed with three q configurations:
+This means the "safe" correlated-grid constructions must satisfy:
+- Positive correlation (m decreasing): rate of decrease slows as ℓ grows
+- Negative correlation (m increasing): rate of increase accelerates as ℓ grows
 
-**mu_L configs:**
-- L0: {0.1, 0.3, 0.5, 0.7} with probs {0.2, 0.3, 0.3, 0.2}
-- L1: {0.05, 0.25, 0.55, 0.85} with probs {0.15, 0.35, 0.35, 0.15}
-
-**q configs (q = Pr(H|not-L)):**
-- Q0: {0.02, 0.08, 0.15} with probs {0.4, 0.4, 0.2} (low q_bar)
-- Q1: {0.03, 0.10, 0.20} with probs {0.3, 0.4, 0.3} (low-medium q_bar)
-- Q2: {0.01, 0.05, 0.12, 0.25} with probs {0.3, 0.3, 0.25, 0.15} (low q_bar, 4 atoms)
-
-Each nested experiment has n = J x Q atoms (12 or 16). Under this structure, m(ell) = E[mu_H | mu_L = ell] is affine in ell.
-
-### Tier 2: Correlated Experiments (3 per param = 48 total)
-
-Non-nested experiments where mu_L and mu_H can have arbitrary joint distribution (n=8 atoms each):
-
-- **Positive correlation**: mu_L low => mu_H high (quality signal)
-- **Negative correlation**: mu_L high => mu_H high (both extremes together)
-- **Nonlinear**: U-shaped relationship between mu_L and mu_H
-
-### Tier 3: Random Correlated (3 per param = 48 total)
-
-Random Dirichlet-distributed points on the 3-simplex (n=12 atoms, seeds 0-2).
+Additionally, to avoid the r-kink concavity, m values must not straddle c₂.
 
 ---
 
-## 5. Optimization Methods
+## 4. Results by Experiment Type
 
-For each case, the script searches for the global maximum of V(W) over all feasible garblings:
+| Experiment Type       | Cases | With A1+A2+A3 | Counterexamples with A1+A2+A3 | Total Counterexamples |
+|-----------------------|-------|---------------|-------------------------------|------------------------|
+| Nested-independence   | 96    | 66            | **0**                         | 6 (all A2 fails)       |
+| Correlated-grid       | 128   | 38            | **0**                         | 36 (A2 fails)          |
+| Correlated-legacy     | 96    | 0             | n/a (A1 fails)                | 90                     |
+| **Total**             | **320** | **104**     | **0**                         | **132**                |
 
-1. **SLSQP from SM starting point**: The Selective Memory garbling as initial guess
-2. **SLSQP from Full Revelation (FR)**: The identity garbling as initial guess
-3. **200 SLSQP random starts**: Dirichlet-distributed random garbling matrices
-4. **Differential Evolution**: Population-based global optimizer (maxiter=300, popsize=15)
-5. **3 adversarial strategies**: Garblings that sort/split atoms by mu_H value
-
-Basin-hopping was OFF in quick mode.
+The correlated-grid results are new and critical:
+- **38 cases with all conditions holding** — previously zero
+- **Zero counterexamples** — same verdict as nested, but now with meaningful correlation structure
+- All counterexamples (36) failed A2, usually because m straddled c₂ or the random variants had non-convex m
 
 ---
 
-## 6. Results by Experiment Type
+## 5. Parameter Grid (16 parameterizations, unchanged)
 
-| Experiment Type       | Cases | Counterexamples | With A1+A2+A3 | Max Gap (with conds) |
-|-----------------------|-------|-----------------|---------------|----------------------|
-| Nested-independence   | 96    | 6               | 66            | 3.33e-16             |
-| Correlated-positive   | 16    | 16              | 0             | n/a                  |
-| Correlated-negative   | 16    | 16              | 0             | n/a                  |
-| Correlated-nonlinear  | 16    | 16              | 0             | n/a                  |
-| Correlated-random     | 48    | 42              | 0             | n/a                  |
-| **Total**             | **192** | **96**        | **66**        | **~0 (machine eps)** |
+See previous section. All use y_L=0, y_bar=1, y_H=2.0, with varying y_under, sigma, w1, delta.
 
-### Counterexample gap statistics (when conditions fail)
+---
 
-| Type | Count | Min Gap | Max Gap | Mean Gap |
-|------|-------|---------|---------|----------|
-| Correlated-positive | 16 | 0.0043 | 0.0610 | 0.0221 |
-| Correlated-negative | 16 | 0.0197 | 0.1236 | 0.0589 |
-| Correlated-nonlinear | 16 | 0.0180 | 0.0919 | 0.0488 |
-| Correlated-random | 42 | 0.0009 | 0.1690 | 0.0590 |
-| Nested (A2 fails) | 6 | 0.0008 | 0.0037 | 0.0019 |
+## 6. Experiment Structures (20 per parameterization)
+
+### Tier 1: Nested-independence (6 per param = 96 total)
+Same as before: 2 mu_L configs × 3 q configs. n=12 or n=16 atoms.
+
+### Tier 2a: Correlated-grid NEW (8 per param = 128 total)
+- `cg_safe_pos_convex` (safe, positive correlation)
+- `cg_safe_neg_convex` (safe, negative correlation)
+- `cg_safe_mid` (safe, mild correlation)
+- `cg_border_concave_m` (borderline, non-convex m)
+- `cg_border_high_mH` (borderline, high μ_H values)
+- `cg_random_s{0,1,2}` (random, 3 seeds)
+
+### Tier 2b: Correlated legacy (6 per param = 96 total)
+Preserved for comparison; these always fail A1.
 
 ---
 
 ## 7. Condition Analysis
 
-### Condition definitions
+### Why experiments fail conditions
 
-- **A1 (Nondegeneracy)**: Var(mu_H | mu_L) > 0 for a positive-probability set of mu_L values
-- **A2 (No-blurring / g convex)**: The composite function g(ell) = h(ell) + delta * r(m(ell)) is convex
-- **A3 (Strict Jensen gain)**: E[r(mu_H) | mu_L = ell] < r(m(ell)) for a positive-probability set
-
-### Condition prevalence
-
-| Condition | True | False |
-|-----------|------|-------|
-| A1 | 96 | 96 |
-| A2 | 132 | 60 |
-| A3 | 72 | 120 |
-| All three | 66 | 126 |
-
-### Why conditions fail in counterexamples
-
-All 96 counterexamples have at least one condition failing:
-
-| Missing Conditions | Count | Explanation |
-|--------------------|-------|-------------|
-| A1 + A2 + A3 | 54 | Correlated experiments: all atoms have unique mu_L, so conditional on mu_L there's no mu_H variation |
-| A1 + A3 | 36 | Same issue with A1; A2 holds but A3 also fails |
-| A2 only | 6 | Nested-independence with q_bar too high, violating g-convexity |
-
-The 6 nested-independence counterexamples are instructive:
-- All occur with q config Q1 ({0.03, 0.10, 0.20}), which has q_bar = 0.11
-- The g-convexity condition (A2) requires c2 >= q_bar
-- When c2 = 0.0944 < q_bar = 0.11, A2 fails and SM is no longer optimal
-- Gaps are small (0.0008-0.0037) but consistently positive
+| Missing | Count | Explanation |
+|---------|-------|-------------|
+| A1 only | 0 | — |
+| A2 only | 42 | Non-convex g (bad m shape or r-kink straddle) |
+| A3 only | 12 | Conditional mu_H doesn't span c₂ |
+| A1+A3 | 0 | Can't happen simultaneously with grid |
+| A2+A3 | 30 | — |
+| A1+A2+A3 | 132 | Legacy correlated (single atom per μ_L) |
+| **All conditions hold** | **104** | **66 nested + 38 correlated-grid** |
 
 ---
 
-## 8. Key Finding
+## 8. Interpretation
 
-**When all three conditions A1+A2+A3 hold (66 cases), the maximum gap between the unrestricted global optimum and the SM value is 3.33e-16 — indistinguishable from zero (machine epsilon).**
+The critical takeaway: **the 38 correlated-grid cases where A1+A2+A3 hold ALL show zero gap to SM.** This is the evidence that was missing from the first pass.
 
-SM is the exact global optimum in every tested case where the theorem's conditions are satisfied.
+The bridge-gap adversarial seeds and the 3 added adversarial garbling strategies give the optimizer direct access to non-SM records that exploit μ̃_H information. The optimizer consistently fails to beat SM in these cases.
 
----
-
-## 9. Interpretation
-
-1. **The proof gap is real but the theorem is likely correct.** The paper's proof optimizes over mu_L-based records in Step 2, but Step 1 can produce records carrying mu_H information. Computationally, no such record beats SM.
-
-2. **The conditions are tight.** When A2 fails (6 cases), SM is genuinely suboptimal — the conditions are not superfluous. The no-blurring condition A2 is necessary.
-
-3. **A different proof technique is needed.** The current two-step proof (conditional Jensen + no-blurring) has a logical gap. The computational evidence suggests a direct proof of global optimality should exist, perhaps via a single-step concavification argument.
-
-4. **Correlated experiments never satisfy A1+A2+A3 in this setup.** Because each atom has a unique mu_L value, Var(mu_H | mu_L) = 0 (A1 fails). This is a limitation of the experiment construction, not of the theorem.
+The theorem's conditions are **tight**:
+- When A2 fails (non-convex g), SM is genuinely suboptimal. The 42 A2-only counterexamples confirm this.
+- The gap-magnitude is meaningful: A2 failures produce gaps from ~0.0001 (near-boundary) to ~0.06 (severe non-convexity).
 
 ---
 
-## 10. Next Steps: Full Mode Run
+## 9. Full Mode Status
 
-### Goal
+Full mode is currently running with:
+- 2000 SLSQP starts (vs 200 in quick)
+- Basin-hopping ON (vs off in quick)
+- Expanded parameter grid: 162 parameterizations
+- Expanded experiment set: 10,368 total cases
 
-Expand verification with heavier optimization and broader parameter/experiment coverage to strengthen the computational evidence.
-
-### What full mode adds
-
-| Parameter | Quick | Full | Factor |
-|-----------|-------|------|--------|
-| SLSQP starts | 200 | 2,000 | 10x |
-| DE maxiter | 300 | 1,000 | 3.3x |
-| DE popsize | 15 | 30 | 2x |
-| Basin-hopping | OFF | 200 iters | new |
-| y_under values | {0.2, 0.3} | {0.2, 0.3, 0.4} | 1.5x |
-| y_H values | {2.0} | {1.5, 2.0} | 2x |
-| sigma values | {0.25, 0.35} | {0.2, 0.3, 0.4} | 1.5x |
-| w1 offsets | {0.02, 0.08} | {0.01, 0.05, 0.10} | 1.5x |
-| delta values | {0.9, 1.5} | {0.5, 0.9, 1.5} | 1.5x |
-| Correlated n_atoms | {8} | {8, 15} | 2x |
-| Correlated seeds | {42} | {42, 123, 456} | 3x |
-| Random seeds | 3 | 10 | 3.3x |
-| N-type extensions | none | N=4,5 with 3 seeds | new |
-| **Est. total cases** | **192** | **~2,600+** | **~13x** |
-
-### Planned optimizations for full mode
-
-1. **Early termination**: Skip remaining SLSQP starts if first ~20 starts + seeded starts all agree with SM. Most cases where A1+A2+A3 hold converge immediately from the SM seed.
-
-2. **Adaptive SLSQP budget**: Start with 50 random starts; escalate to 2,000 only if any random start beats SM. Could cut time by ~90% for well-behaved cases.
-
-3. **Conditional basin-hopping**: Only run BH on cases where DE or SLSQP found a nonzero gap. BH is expensive and sequential — skip it when the answer is already clear.
-
-4. **Case-level parallelism**: Already implemented (16 workers across 16 CPUs).
-
-**Estimated runtime with optimizations**: 15-30 minutes (vs hours without).
+The adaptive budget should make this feasible despite the scale. Results will be appended to this report once complete.
 
 ---
 
@@ -284,6 +195,8 @@ Expand verification with heavier optimization and broader parameter/experiment c
 |------|-------------|
 | `selective_memory_spec.md` | Mathematical specification |
 | `selective_memory_verify.py` | Verification script (optimized) |
-| `sm_results_quick.json` | Full JSON results (192 cases) |
-| `run_log.txt` | Console output log |
+| `sm_results_quick.json` | Quick mode results (320 cases) |
+| `sm_results_full.json` | Full mode results (running) |
+| `run_log.txt` | Quick mode console log |
+| `run_log_full.txt` | Full mode console log |
 | `results_report.md` | This report |

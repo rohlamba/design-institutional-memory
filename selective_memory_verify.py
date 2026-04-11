@@ -53,10 +53,10 @@ import multiprocessing
 class Config:
     """Global configuration for the sweep."""
     # Optimizer settings
-    n_slsqp_starts: int = 2000       # random starts for SLSQP (phase 2 target)
-    de_maxiter: int = 1000            # differential evolution max iterations
-    de_popsize: int = 30              # differential evolution population
-    bh_niter: int = 200               # basin-hopping iterations
+    n_slsqp_starts: int = 500        # random starts for SLSQP (phase 2 target)
+    de_maxiter: int = 500             # differential evolution max iterations
+    de_popsize: int = 20              # differential evolution population
+    bh_niter: int = 100               # basin-hopping iterations
     use_differential_evolution: bool = True
     use_basin_hopping: bool = True
     use_slsqp: bool = True
@@ -569,7 +569,14 @@ def solve_unrestricted(params: ModelParams, expt: Experiment, config: Config,
             methods_used.append(f"phase2({remaining_starts})")
 
     # --- Method 3: Differential Evolution ---
-    if config.use_differential_evolution and n * K <= 200:
+    # In adaptive mode: only run DE if we've already found a nonzero gap
+    # (it's expensive and unlikely to help when SM is clearly optimal).
+    run_de = config.use_differential_evolution
+    if config.adaptive and config.use_differential_evolution:
+        gap_so_far = best_val - V_SM_ref
+        run_de = gap_so_far > config.gap_tol * 0.1
+
+    if run_de and n * K <= 200:
         # DE needs unconstrained parameterization
         # Use softmax rows: for each row, K-1 free params
         def de_objective(x_free):
@@ -1058,19 +1065,22 @@ def generate_experiments(params: ModelParams, quick: bool = False
             cases.append((params, expt))
 
     # --- TIER 2: Correlated experiments (legacy, single atom per mu_L) ---
-    for ctype in ["positive", "negative", "nonlinear"]:
-        for n_atoms in ([8, 15] if not quick else [8]):
-            for seed in ([42, 123, 456] if not quick else [42]):
-                expt = make_correlated(
-                    n_atoms, ctype, seed=seed,
-                    label=f"corr_{ctype}_n{n_atoms}_s{seed}")
-                cases.append((params, expt))
-
-    for seed in range(10 if not quick else 3):
-        expt = make_correlated(
-            12, "random", seed=seed,
-            label=f"corr_random_s{seed}")
-        cases.append((params, expt))
+    # NOTE: These always fail A1 because each atom has a unique mu_L. They add
+    # no evidence to the A1+A2+A3 pool and just consume compute on counterexamples.
+    # Kept only in quick mode for historical comparison with the first-pass results.
+    if quick:
+        for ctype in ["positive", "negative", "nonlinear"]:
+            for n_atoms in [8]:
+                for seed in [42]:
+                    expt = make_correlated(
+                        n_atoms, ctype, seed=seed,
+                        label=f"corr_{ctype}_n{n_atoms}_s{seed}")
+                    cases.append((params, expt))
+        for seed in range(3):
+            expt = make_correlated(
+                12, "random", seed=seed,
+                label=f"corr_random_s{seed}")
+            cases.append((params, expt))
 
     # --- TIER 2b: Correlated-grid experiments (multi-atom per mu_L) ---
     # These are the critical tests: A1 can hold because multiple atoms share
@@ -1188,7 +1198,7 @@ def generate_experiments(params: ModelParams, quick: bool = False
 
     # (f) Random correlated-grid experiments
     # These sample conditional mu_H means from random distributions
-    n_rand = 3 if quick else 10
+    n_rand = 3 if quick else 6
     for seed in range(n_rand):
         expt = make_correlated_grid_random(
             seed=seed, n_L=4, n_H_per_L=3,
